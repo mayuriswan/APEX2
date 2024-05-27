@@ -1,0 +1,61 @@
+﻿@page "/"
+
+@using Telerik.Blazor.Components
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-md-6 md-h-100 left-box d-flex flex-column align-items-center">
+            <div class="item-bx max-w-600">
+                <img class="w-100" src="assets/images/apexmeeting-left.png" alt="images">
+            </div>
+        </div>
+        <div class="col-md-6 md-p md-mt-t h-100 right-box d-flex flex-column align-items-center">
+            <div class="item-bx form-box max-w-600 h-100 w-100 right-form-box">
+                <EditForm class="form-field-box w-100" Model="@TestUser" OnValidSubmit="HandleValidSubmit">
+                    <DataAnnotationsValidator />
+                    <div class="form-logo text-center">
+                        <img src="assets/images/form-logo.png" alt="images">
+                    </div>
+                    <h3 class="login-text text-center">Login</h3>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <TelerikTextBox Id="email" @bind-Value="@TestUser.Email" InputMode="email" Placeholder="example@domain.com" class="form-control"></TelerikTextBox>
+                        <TelerikValidationMessage For="@(() => TestUser.Email)"></TelerikValidationMessage>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="d-flex justify-content-between pass-input">
+
+                            <TelerikTextBox Id="password" @bind-Value="@TestUser.Password" Placeholder="Enter Password" Password="HidePassword" class="form-control pr-control"></TelerikTextBox>
+
+
+                            <TelerikButton OnClick="@RevealPassword"
+                                           Icon="@SvgIcon.Eye"
+                                           ButtonType="ButtonType.Button">
+                                <template>
+                                    <div class="password-box"></div>
+                                </template>
+                            </TelerikButton>
+
+                        </div>
+                        <TelerikValidationMessage For="@(() => TestUser.Password)" />
+
+                    </div>
+                    <div class="mb-3 form-check">
+                        <div class="item-box">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        </div>
+                        <div class="link-item-box">
+                            <a href="#">Forget Password?</a>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn login-button w-100">Login</button>
+                    <div class="top-box">
+                        <p class="register-color">Do Not Have an Account? <a href="#">Register</a></p>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>

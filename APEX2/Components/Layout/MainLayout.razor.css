@@ -1,0 +1,27 @@
+@media (min-width: 768px) {
+    .vh-md-100 {
+        height: 100vh !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .md-p {
+        padding: 32px !important
+    }
+
+    .md-mt-t {
+        margin-top: 24px;
+    }
+
+    .main-form-box {
+        margin-top: 42px;
+    }
+
+    .section-margin {
+        margin-top: 48px;
+        margin-bottom: 48px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
